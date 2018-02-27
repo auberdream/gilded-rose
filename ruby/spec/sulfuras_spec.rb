@@ -1,6 +1,6 @@
 require_relative '../src/sulfuras.rb'
 
-describe "Sulfuras, Hand of Ragnaros:" do
+describe Sulfuras do
 
   before(:each) do
     @sulfuras = Sulfuras.new(5,5)
