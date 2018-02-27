@@ -70,6 +70,74 @@ describe GildedRose do
 
     end
 
+    describe "Backstage passes to a TAFKAL80ETC concert:" do
+
+      describe "more than 10 days sell_in" do
+
+        before(:each) do
+          @items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 12, 5)]
+          GildedRose.new(@items).update_quality()
+        end
+
+        it "increases quality by one" do
+          expect(@items[0].quality).to eq 6
+        end
+
+        it "decreases the sell_in by one" do
+          expect(@items[0].sell_in).to eq 11
+        end
+
+      end
+
+      describe "less than 11 days, more than 5 days sell_in" do
+
+        before(:each) do
+          @items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 10, 5)]
+          GildedRose.new(@items).update_quality()
+        end
+
+        it "increases quality by two" do
+          expect(@items[0].quality).to eq 7
+        end
+
+        it "decreases the sell_in by one" do
+          expect(@items[0].sell_in).to eq 9
+        end
+
+      end
+
+      describe "less than 6 days sell_in" do
+
+        before(:each) do
+          @items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 7)]
+          GildedRose.new(@items).update_quality()
+        end
+
+        it "increases quality by three" do
+          expect(@items[0].quality).to eq 10
+        end
+
+        it "decreases the sell_in by one" do
+          expect(@items[0].sell_in).to eq 4
+        end
+
+      end
+
+      describe "0 days sell_in" do
+
+        before(:each) do
+          @items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 0, 7)]
+          GildedRose.new(@items).update_quality()
+        end
+
+        it "decreases quality to 0" do
+          expect(@items[0].quality).to eq 0
+        end
+
+      end
+
+    end
+
   end
 
 end
