@@ -22,17 +22,16 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      case item.name
-      when 'Aged Brie'
-        @brie.update(item)
-      when 'Sulfuras, Hand of Ragnaros'
-        @sulfuras.update(item)
-      when 'Backstage passes to a TAFKAL80ETC concert'
-        @backstage.update(item)
-      else
-        @normal.update(item)
-      end
+      item_type(item).update(item)
     end
+  end
+
+  private
+  def item_type(item)
+    return @brie if item.name == "Aged Brie"
+    return @sulfuras if item.name == "Sulfuras, Hand of Ragnaros"
+    return @backstage if item.name == "Backstage passes to a TAFKAL80ETC concert"
+    @normal
   end
 
 end
