@@ -1,6 +1,6 @@
-require_relative './item.rb'
+require_relative './initializer.rb'
 
-class Brie < Item
+class Brie < Initializer
 
   def update
     decrease_sell_in

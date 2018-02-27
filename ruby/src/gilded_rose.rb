@@ -21,28 +21,4 @@ class GildedRose
     end
   end
 
-  def brie_update(item)
-    item.quality += 1 if item.quality < 50
-    item.sell_in -= 1
-  end
-
-  def sulfuras_update(item)
-  end
-
-  def backstage_pass_update(item)
-    if item.quality < 50
-      item.quality += 1 if item.sell_in > 10
-      item.quality += 2 if item.sell_in > 5 && item.sell_in < 11
-      item.quality += 3 if item.sell_in > 0 && item.sell_in < 6
-    end
-    item.quality = 0 if item.sell_in == 0
-    item.sell_in -= 1
-  end
-
-  def normal_update(item)
-    item.quality -= 1 if item.quality != 0
-    item.quality -= 1 if item.sell_in <= 0
-    item.sell_in -= 1
-  end
-
 end
