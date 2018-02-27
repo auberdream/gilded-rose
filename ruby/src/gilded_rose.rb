@@ -11,7 +11,10 @@ class GildedRose
       case item.name
       when 'Aged Brie'
         brie_update(item)
+      when 'Sulfuras, Hand of Ragnaros'
+        sulfuras_update(item)
       end
+
 
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
@@ -62,5 +65,8 @@ class GildedRose
   def brie_update(item)
     item.quality += 1 if item.quality < 50
     item.sell_in -= 1
+  end
+
+  def sulfuras_update(item)
   end
 end
