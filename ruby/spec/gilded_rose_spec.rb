@@ -72,6 +72,12 @@ describe GildedRose do
 
     describe "Backstage passes to a TAFKAL80ETC concert:" do
 
+      it "cannot have quality over 50" do
+        @items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 12, 50)]
+        GildedRose.new(@items).update_quality()
+        expect(@items[0].quality).to eq 50
+      end
+
       describe "more than 10 days sell_in" do
 
         before(:each) do
