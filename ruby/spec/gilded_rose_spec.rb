@@ -53,18 +53,22 @@ describe GildedRose do
 
     end
 
-    # describe "Sulfuras, Hand of Ragnaros:" do
-    #
-    #   before(:each) do
-    #     @items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 5)]
-    #     GildedRose.new(@items).update_quality()
-    #   end
-    #
-    #   it "does not change the quality" do
-    #     expect(@)
-    #   end
-    #
-    # end
+    describe "Sulfuras, Hand of Ragnaros:" do
+
+      before(:each) do
+        @items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 5)]
+        GildedRose.new(@items).update_quality()
+      end
+
+      it "does not change the quality" do
+        expect(@items[0].quality).to eq 5
+      end
+
+      it "does not change the sell_in" do
+        expect(@items[0].sell_in).to eq 5
+      end
+
+    end
 
   end
 
