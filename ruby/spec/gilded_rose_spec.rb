@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'gilded_rose')
+require_relative '../gilded_rose.rb'
 
 describe GildedRose do
 
