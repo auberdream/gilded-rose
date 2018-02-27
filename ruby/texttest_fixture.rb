@@ -1,7 +1,7 @@
 #!/usr/bin/ruby -w
 
 require_relative './src/gilded_rose.rb'
-require_relative './src/items.rb'
+require_relative './src/item.rb'
 
 puts "OMGHAI!"
 items = [

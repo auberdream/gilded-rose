@@ -1,22 +1,36 @@
 require_relative './item.rb'
+require_relative './backstage.rb'
+require_relative './brie.rb'
+require_relative './normal.rb'
+require_relative './sulfuras.rb'
 
 class GildedRose
 
-  def initialize(items)
+  attr_reader :backstage, :normal, :sulfuras, :brie
+
+  def initialize(items,
+                 backstage = Backstage.new,
+                 brie = Brie.new,
+                 normal = Normal.new,
+                 sulfuras = Sulfuras.new)
     @items = items
+    @backstage = backstage
+    @normal = normal
+    @sulfuras = sulfuras
+    @brie = brie
   end
 
   def update_quality
     @items.each do |item|
       case item.name
       when 'Aged Brie'
-        brie_update(item)
+        @brie.update(item)
       when 'Sulfuras, Hand of Ragnaros'
-        sulfuras_update(item)
+        @sulfuras.update(item)
       when 'Backstage passes to a TAFKAL80ETC concert'
-        backstage_pass_update(item)
+        @backstage.update(item)
       else
-        normal_update(item)
+        @normal.update(item)
       end
     end
   end
