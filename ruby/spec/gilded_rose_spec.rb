@@ -7,7 +7,10 @@ describe GildedRose do
     describe "Normal items:" do
 
       before(:each) do
-        @items = [Item.new("normal item", 4, 10), Item.new("normal item", 0, 5), Item.new("normal item", 2, 0)]
+        @items = [Item.new("normal item", 4, 10),
+                  Item.new("normal item", 0, 5),
+                  Item.new("normal item", 2, 0),
+                  Item.new("normal item", 2, 51)]
         GildedRose.new(@items).update_quality()
       end
 
@@ -23,15 +26,43 @@ describe GildedRose do
         expect(@items[1].quality).to eq 3
       end
 
-      it "the quality can not be negative" do
+      it "the quality cannot be negative" do
         expect(@items[2].quality).to eq 0
       end
 
     end
 
-    # describe "Aged Brie:" do
+    describe "Aged Brie:" do
+
+      before(:each) do
+        @items = [Item.new("Aged Brie", 4, 0), Item.new("Aged Brie", 4, 50)]
+        GildedRose.new(@items).update_quality()
+      end
+
+      it "increases the quality by one" do
+        expect(@items[0].quality).to eq 1
+      end
+
+      it "decreases the sell_in by one" do
+        expect(@items[0].sell_in).to eq 3
+      end
+
+      it "the quality can never be over 50" do
+        expect(@items[1].quality).to eq 50
+      end
+
+    end
+
+    # describe "Sulfuras, Hand of Ragnaros:" do
     #
-    #   it ""
+    #   before(:each) do
+    #     @items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 5)]
+    #     GildedRose.new(@items).update_quality()
+    #   end
+    #
+    #   it "does not change the quality" do
+    #     expect(@)
+    #   end
     #
     # end
 
