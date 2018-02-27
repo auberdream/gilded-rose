@@ -1,14 +1,9 @@
-class Backstage
+require_relative './item.rb'
 
-  attr_reader :sell_in, :quality
-
-  def initialize(sell_in, quality)
-    @sell_in = sell_in
-    @quality = quality
-  end
+class Backstage < Item
 
   def update
-    @sell_in -= 1
+    decrease_sell_in
     update_quality if @quality < 50
   end
 

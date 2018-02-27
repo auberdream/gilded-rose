@@ -1,4 +1,4 @@
-require_relative './items.rb'
+require_relative './item.rb'
 
 class GildedRose
 

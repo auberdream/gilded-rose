@@ -1,14 +1,9 @@
-class Brie
+require_relative './item.rb'
 
-  attr_reader :sell_in, :quality
-
-  def initialize(sell_in, quality)
-    @sell_in = sell_in
-    @quality = quality
-  end
+class Brie < Item
 
   def update
-    @sell_in -= 1
+    decrease_sell_in
     @quality += 1 if @quality < 50
   end
 
