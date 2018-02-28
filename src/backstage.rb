@@ -11,8 +11,8 @@ class Backstage < Initializer
 
   def update_quality(item)
     increase_quality(item) if over_ten_days?(item)
-    increase_quality(item, DOUBLE_INCREASE) if six_to_ten_days?(item)
-    increase_quality(item, TRIPLE_INCREASE) if one_to_five_days?(item)
+    increase_quality(item, DOUBLE_INCREMENT) if six_to_ten_days?(item)
+    increase_quality(item, TRIPLE_INCREMENT) if one_to_five_days?(item)
     quality_to_zero(item) if zero_days?(item)
   end
 
