@@ -4,7 +4,7 @@ class Backstage < ItemMethods
 
   def update(item)
     decrease_sell_in(item)
-    update_quality(item) if item.quality < 50
+    update_quality(item) if quality_under_fifty?(item)
   end
 
   private
