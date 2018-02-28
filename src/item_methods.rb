@@ -1,4 +1,4 @@
-class Initializer
+class ItemMethods
 
   ONE_DAY = 1
   NORMAL_INCREMENT = 1

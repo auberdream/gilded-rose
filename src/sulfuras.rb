@@ -1,6 +1,4 @@
-require_relative './initializer.rb'
-
-class Sulfuras < Initializer
+class Sulfuras 
 
   def update(item)
   end

@@ -1,6 +1,6 @@
-require_relative './initializer.rb'
+require_relative './item_methods.rb'
 
-class Normal < Initializer
+class Normal < ItemMethods
 
   def update(item)
     decrease_sell_in(item)
