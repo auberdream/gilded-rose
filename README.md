@@ -14,7 +14,7 @@ This is a solution to the famous Gilded Rose kata in Ruby.
 
 ## Approach
 
-My main purpose with this refactor was to ensure that making the Conjured class was as easy as possible. I cite the quote from Kent Beck: 'for each desired change, make the change easy (warning: this may be hard), then make the easy change'. In the end, adding the conjured class took me < 10 minutes.
+My main purpose with this refactor was to ensure that making the Conjured class was as easy as possible. In the end, adding the conjured class took me < 10 minutes.
 
 I also wanted to approach this as if it were a real-life problem, so I put some focus into making the code open enough to add new products easily in the future and also creating public methods that were readable and easy to understand on face value.
 
